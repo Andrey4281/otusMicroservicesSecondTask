@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: back
+spec:
+  rules:
+    - host: arch.homework
+      http:
+        paths:
+          - backend:
+              service:
+                name: backend-service
+                port:
+                  number: 7000
+            pathType: Prefix
+            path: /
