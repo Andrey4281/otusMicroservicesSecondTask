@@ -1,4 +1,15 @@
 controller:
+  podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "10254"
+  extraArgs:
+    metrics-per-host: false
+  metrics:
+    enabled: true
+    serviceMonitor:
+      additionalLabels:
+        release: prometheus
+      enabled: true
   service:
 #    externalIPs:
 #      - XX.XX.XX.XX
