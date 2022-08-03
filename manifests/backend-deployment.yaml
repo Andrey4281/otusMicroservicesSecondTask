@@ -3,10 +3,17 @@ kind: Service
 metadata:
   name: backend-service
   namespace: back
+  labels:
+    app: myapp
 spec:
   type: ClusterIP
   ports:
     - port: 7000
+      name: backend
+      targetPort: 8080
+    - port: 8000
+      name: metrics
+      protocol: TCP
       targetPort: 8080
   selector:
     app: myapp
@@ -34,7 +41,7 @@ spec:
         app: myapp
     spec:
       containers:
-        - image: andrey4281/otussecondtask:0.0.1
+        - image: andrey4281/otussecondtask:0.0.2
           name: crudservice
           env:
             - name: RDS_HOSTNAME

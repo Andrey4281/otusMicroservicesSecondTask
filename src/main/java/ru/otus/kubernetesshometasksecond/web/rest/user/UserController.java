@@ -1,4 +1,4 @@
-package ru.otus.kubernetesshometasksecond.web.rest;
+package ru.otus.kubernetesshometasksecond.web.rest.user;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -42,10 +42,10 @@ spec:
             - "-c"
             - |
               PGPASSWORD=$PASSWORD psql -d $DATABASE -U $DB_USER -h $DATABASE_URI  <<'EOF'
-                CREATE SEQUENCE IF NOT EXISTS users_sequence;
+                CREATE SEQUENCE IF NOT EXISTS users_id_seq;
                 CREATE TABLE IF NOT EXISTS users
                   (
-                  id bigint default nextval('users_sequence'::regclass) not null
+                  id bigint default nextval('users_id_seq'::regclass) not null
                   primary key,
                   username varchar(255),
                   firstname varchar(255),
