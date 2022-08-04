@@ -1,0 +1,19 @@
+config:
+  datasource:
+    host: otus-postgresql.postgres.svc.cluster.local
+    user: otus
+    password: "12345"
+    port: "5432"
+    database: users
+    sslmode: disable
+
+service:
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9187"
+
+serviceMonitor:
+  enabled: true
+  namespace: default
+  interval: 15s
+  telemetryPath: /metrics

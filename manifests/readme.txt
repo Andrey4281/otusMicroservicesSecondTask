@@ -14,3 +14,6 @@
 9) kubectl apply -f backend-deployment.yaml
 10) minikube addons enable ingress
 11) kubectl apply -f ingress.yaml
+Для мониторинга внутри директории prometheus:
+1) helm install stack prometheus-community/kube-prometheus-stack -f stack-values.yaml
+2) helm install postgres-exporter -f postgres-exporter-config.yaml prometheus-community/prometheus-postgres-exporter
