@@ -85,9 +85,341 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
+        "w": 11,
         "x": 0,
         "y": 0
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "expr": "((sum(pg_settings_max_connections) by (server) - sum(pg_settings_superuser_reserved_connections) by (server)) - sum(pg_stat_activity_count) by (server))",
+          "key": "Q-0c664db6-d653-4d6d-b2ec-35e45b12d9a5-0",
+          "refId": "A"
+        }
+      ],
+      "title": "Postgres available connections",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 11,
+        "y": 0
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum by (server) (pg_stat_activity_max_tx_duration)",
+          "key": "Q-df189b8c-f10a-4966-b279-028db4e55ac1-0",
+          "refId": "A"
+        }
+      ],
+      "title": "Max transaction duration",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 0,
+        "y": 8
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum by (server) (pg_database_size_bytes)",
+          "key": "Q-f2dd0191-20c8-4948-9350-fa13ab073031-0",
+          "refId": "A"
+        }
+      ],
+      "title": "Postgres storage usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 11,
+        "y": 8
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum by (mountpoint) (node_filesystem_free_bytes)",
+          "key": "Q-69b28c53-25da-4120-a369-a1447fd8dfed-0",
+          "refId": "A"
+        }
+      ],
+      "title": "Postgres available storage by mountpoint",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 0,
+        "y": 16
       },
       "id": 12,
       "options": {
@@ -168,9 +500,9 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 11,
-        "x": 0,
-        "y": 8
+        "w": 9,
+        "x": 11,
+        "y": 16
       },
       "id": 11,
       "options": {
@@ -251,175 +583,9 @@
       },
       "gridPos": {
         "h": 7,
-        "w": 9,
-        "x": 11,
-        "y": 8
-      },
-      "id": 8,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "expr": "histogram_quantile(0.5, sum by (le, exported_service) (rate(nginx_ingress_controller_request_duration_seconds_bucket{exported_service=\"backend-service\"}[1m])))",
-          "key": "Q-f62d2205-105b-43e8-b476-8a6bf5a31f2b-0",
-          "refId": "A"
-        }
-      ],
-      "title": "Nginx 50 quantile",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 9,
-        "x": 11,
-        "y": 15
-      },
-      "id": 9,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "expr": "histogram_quantile(0.95, sum by (le, exported_service) (rate(nginx_ingress_controller_request_duration_seconds_bucket{exported_service=\"backend-service\"}[1m])))",
-          "key": "Q-6730e199-eb3f-4ab9-9e8c-74fa7499dcd0-0",
-          "refId": "A"
-        }
-      ],
-      "title": "nginx 95 quantile",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
         "w": 11,
         "x": 0,
-        "y": 16
+        "y": 24
       },
       "id": 4,
       "options": {
@@ -503,12 +669,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 9,
         "x": 11,
-        "y": 22
+        "y": 24
       },
-      "id": 10,
+      "id": 8,
       "options": {
         "legend": {
           "calcs": [],
@@ -522,12 +688,12 @@
       },
       "targets": [
         {
-          "expr": "histogram_quantile(0.99, sum by (le, exported_service) (rate(nginx_ingress_controller_request_duration_seconds_bucket{exported_service=\"backend-service\"}[1m])))",
-          "key": "Q-7ac41bc7-8ce4-4bf8-a2f0-e1b6a5b7628a-0",
+          "expr": "histogram_quantile(0.5, sum by (le, exported_service) (rate(nginx_ingress_controller_request_duration_seconds_bucket{exported_service=\"backend-service\"}[1m])))",
+          "key": "Q-f62d2205-105b-43e8-b476-8a6bf5a31f2b-0",
           "refId": "A"
         }
       ],
-      "title": "Nginx 99 quantile",
+      "title": "Nginx 50 quantile",
       "type": "timeseries"
     },
     {
@@ -590,7 +756,7 @@
         "h": 7,
         "w": 11,
         "x": 0,
-        "y": 23
+        "y": 31
       },
       "id": 3,
       "options": {
@@ -675,12 +841,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 9,
         "x": 11,
-        "y": 28
+        "y": 31
       },
-      "id": 7,
+      "id": 9,
       "options": {
         "legend": {
           "calcs": [],
@@ -694,12 +860,12 @@
       },
       "targets": [
         {
-          "expr": "sum by (exported_service) (rate(nginx_ingress_controller_requests{exported_service=\"backend-service\"}[1m]))",
-          "key": "Q-634f3c3b-d307-4b96-baf7-e2da7bed810d-0",
+          "expr": "histogram_quantile(0.95, sum by (le, exported_service) (rate(nginx_ingress_controller_request_duration_seconds_bucket{exported_service=\"backend-service\"}[1m])))",
+          "key": "Q-6730e199-eb3f-4ab9-9e8c-74fa7499dcd0-0",
           "refId": "A"
         }
       ],
-      "title": "Nginx RPS",
+      "title": "nginx 95 quantile",
       "type": "timeseries"
     },
     {
@@ -761,7 +927,7 @@
         "h": 6,
         "w": 11,
         "x": 0,
-        "y": 30
+        "y": 38
       },
       "id": 5,
       "options": {
@@ -841,12 +1007,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 6,
         "w": 9,
         "x": 11,
-        "y": 34
+        "y": 38
       },
-      "id": 6,
+      "id": 10,
       "options": {
         "legend": {
           "calcs": [],
@@ -858,19 +1024,14 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.4",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "expr": "sum by (exported_service) (nginx_ingress_controller_requests{exported_service=\"backend-service\", status=\"500\"})",
-          "key": "Q-21fdea87-47b4-472b-ba0c-a907cb53407d-0",
+          "expr": "histogram_quantile(0.99, sum by (le, exported_service) (rate(nginx_ingress_controller_request_duration_seconds_bucket{exported_service=\"backend-service\"}[1m])))",
+          "key": "Q-7ac41bc7-8ce4-4bf8-a2f0-e1b6a5b7628a-0",
           "refId": "A"
         }
       ],
-      "title": "Total 500 request nginx",
+      "title": "Nginx 99 quantile",
       "type": "timeseries"
     },
     {
@@ -932,7 +1093,7 @@
         "h": 6,
         "w": 11,
         "x": 0,
-        "y": 36
+        "y": 44
       },
       "id": 2,
       "options": {
@@ -1016,10 +1177,93 @@
         "overrides": []
       },
       "gridPos": {
+        "h": 6,
+        "w": 9,
+        "x": 11,
+        "y": 44
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum by (exported_service) (rate(nginx_ingress_controller_requests{exported_service=\"backend-service\"}[1m]))",
+          "key": "Q-634f3c3b-d307-4b96-baf7-e2da7bed810d-0",
+          "refId": "A"
+        }
+      ],
+      "title": "Nginx RPS",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
         "h": 8,
         "w": 11,
         "x": 0,
-        "y": 42
+        "y": 50
       },
       "id": 1,
       "options": {
@@ -1047,6 +1291,94 @@
       ],
       "title": "500 request by uri",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 11,
+        "y": 50
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.0.4",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "expr": "sum by (exported_service) (nginx_ingress_controller_requests{exported_service=\"backend-service\", status=\"500\"})",
+          "key": "Q-21fdea87-47b4-472b-ba0c-a907cb53407d-0",
+          "refId": "A"
+        }
+      ],
+      "title": "Total 500 request nginx",
+      "type": "timeseries"
     }
   ],
   "refresh": false,
@@ -1057,13 +1389,13 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
-    "to": "now"
+    "from": "2022-08-04T05:49:56.941Z",
+    "to": "2022-08-04T07:02:20.743Z"
   },
   "timepicker": {},
   "timezone": "",
   "title": "OtusTestDashBoard",
   "uid": "FRI6QJzVk",
-  "version": 31,
+  "version": 40,
   "weekStart": ""
 }
