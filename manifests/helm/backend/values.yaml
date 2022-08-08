@@ -8,5 +8,18 @@ dataBase:
 
 namespace: "back"
 
-service:
+deploy:
   replicasCount: 3
+  podLabel: myapp
+  containerPort: 8080
+  image:
+    name: andrey4281/otussecondtask
+    tag: 0.0.2
+  service:
+    type: ClusterIP
+    port:
+      number: 7000
+      name: backend
+    metricPort:
+      number: 8000
+      name: metrics

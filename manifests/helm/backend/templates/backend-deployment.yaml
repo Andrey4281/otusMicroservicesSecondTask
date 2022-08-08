@@ -4,19 +4,19 @@ metadata:
   name: backend-service
   namespace: {{ .Values.namespace }}
   labels:
-    app: myapp
+    app: {{ .Values.deploy.podLabel }}
 spec:
-  type: ClusterIP
+  type: {{ .Values.deploy.service.type }}
   ports:
-    - port: 7000
-      name: backend
-      targetPort: 8080
-    - port: 8000
-      name: metrics
+    - port: {{ .Values.deploy.service.port.number }}
+      name: {{ .Values.deploy.service.port.name }}
+      targetPort: {{ .Values.deploy.containerPort }}
+    - port: {{ .Values.deploy.service.metricPort.number }}
+      name: {{ .Values.deploy.service.metricPort.name }}
       protocol: TCP
-      targetPort: 8080
+      targetPort: {{ .Values.deploy.containerPort }}
   selector:
-    app: myapp
+    app: {{ .Values.deploy.podLabel }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,8 +28,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: myapp
-  replicas: {{ .Values.service.replicasCount }}
+      app: {{ .Values.deploy.podLabel }}
+  replicas: {{ .Values.deploy.replicasCount }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -38,10 +38,10 @@ spec:
   template:
     metadata:
       labels:
-        app: myapp
+        app: {{ .Values.deploy.podLabel }}
     spec:
       containers:
-        - image: andrey4281/otussecondtask:0.0.2
+        - image: "{{ .Values.deploy.image.name }}:{{ .Values.deploy.image.tag }}"
           name: crudservice
           env:
             - name: RDS_HOSTNAME
@@ -70,5 +70,5 @@ spec:
                   name: otus-app-secrets
                   key: psqluserpass
           ports:
-            - containerPort: 8080
+            - containerPort: {{ .Values.deploy.containerPort }}
           imagePullPolicy: IfNotPresent
