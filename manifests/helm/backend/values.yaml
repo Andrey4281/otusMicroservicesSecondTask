@@ -1,0 +1,12 @@
+dataBase:
+  host: "otus-postgresql.postgres.svc.cluster.local"
+  port: "5432"
+  name: "users"
+  user: "otus"
+  userpass: "12345"
+  adminpass: "12345"
+
+namespace: "back"
+
+service:
+  replicasCount: 3
